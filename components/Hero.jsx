@@ -21,7 +21,7 @@ function Hero() {
           رزرو وقت مشاوره
         </div>
       </div>
-      <div className=" flex custom-bg-2 justify-center items-center w-full h-screen">
+      <div className=" rounded-3xl flex custom-bg-2 justify-center items-center w-full h-screen">
         <Swiper
           className="w-full h-full  mt-6 md:h-[75%] md:mt-[43px]"
           pagination={{

@@ -1,9 +1,23 @@
 import React from "react";
+import { useRouter } from "next/router";
+import dbConnect from "../config/dbConnect";
+import getUser from "../config/getUser";
+import { removeCookies } from "cookies-next";
 
 function dashboard() {
+  const router = useRouter();
+  const signoutHandler = () => {
+    removeCookies("token");
+    router.push("/admin");
+  };
   return (
     <div className="bg-gray-900 text-white flex justify-center items-center h-[85vh] backdrop-blur-3xl  m-12 rounded-lg">
-      <h1 className="fixed text-3xl top-[30px] left-[30px]"></h1>
+      <button
+        onClick={signoutHandler}
+        className="fixed bg-white text-gray-900 p-2 rounded-lg  text-xl top-[30px] left-[30px]"
+      >
+        Log Out
+      </button>
       <form className="flex flex-col ">
         <label className="text-xl font-bold">Title</label>
         <input
@@ -29,3 +43,22 @@ function dashboard() {
 }
 
 export default dashboard;
+
+export async function getServerSideProps({ req, res }) {
+  await dbConnect();
+  const user = await getUser(req, res);
+  if (!user) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/admin",
+      },
+      props: {},
+    };
+  }
+  return {
+    props: {
+      user,
+    },
+  };
+}
