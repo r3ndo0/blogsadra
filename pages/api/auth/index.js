@@ -1,7 +1,7 @@
 import Admin from "../../../models/adminUserModel";
 import jwt from "jsonwebtoken";
 import dbConnect from "../../../config/dbConnect";
-import { setCookies } from "cookies-next";
+import { setCookie } from "cookies-next";
 
 dbConnect();
 console.log("DB CONNECTED");
@@ -14,7 +14,7 @@ export default async function handler(req, res) {
     const token = jwt.sign({ userId: user._id }, process.env.TOKEN_SECRET, {
       expiresIn: "1d",
     });
-    setCookies("token", token, {
+    setCookie("token", token, {
       req,
       res,
       maxAge: 60 * 60 * 24,
