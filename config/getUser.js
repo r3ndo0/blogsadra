@@ -1,6 +1,7 @@
 import { getCookie } from "cookies-next";
 import jwt from "jsonwebtoken";
 import Admin from "../models/adminUserModel";
+
 export default async function getUser(req, res) {
   const token = getCookie("token", { req, res });
 
