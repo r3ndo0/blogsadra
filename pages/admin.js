@@ -1,15 +1,14 @@
+import { AiOutlineArrowRight } from "react-icons/ai";
 import axios from "axios";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
-import { BsArrowRightCircleFill } from "react-icons/bs";
+import { useState } from "react";
 import dbConnect from "../config/dbConnect";
 import getUser from "../config/getUser";
 
-const admin = () => {
-  const [username, setUsername] = useState("");
+function admin() {
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
   const router = useRouter();
-
   const signinHandler = async (e) => {
     e.preventDefault();
     try {
@@ -17,43 +16,40 @@ const admin = () => {
         username,
         password,
       });
-      router.push("/dashboard");
+
+      router.push("/admindashboard");
     } catch (error) {
       console.log(error);
     }
   };
 
   return (
-    <div className=" w-full loginbg h-screen flex justify-center items-center ">
-      <div className=" w-[300px] h-[150px] rounded border-2  backdrop-blur-3xl  border-white">
+    <div
+      className="h-screen w-full flex justify-center items-center bg-gray-900 z-40 relative
+     "
+    >
+      <div className="by-grat-700  w-[400px] h-auto">
         <form
           onSubmit={signinHandler}
-          className="flex pt-6 justify-center items-center flex-col"
+          className="flex justify-center items-center flex-col"
         >
           <input
             onChange={(e) => setUsername(e.target.value)}
-            name="username"
-            type="text"
-            className="bg-gray-200 h-[45px] m- rounded text-gray-900 p-1 "
+            className="bg-gray-300 px-2 text-gray-900 h-12 rounded m-2"
           />
           <input
-            onChange={(e) => setPassword(e.target.value)}
-            name="password"
             type="password"
-            className="bg-gray-200 h-[45px] m-2 rounded text-gray-900 p-1 "
+            onChange={(e) => setPassword(e.target.value)}
+            className="bg-gray-300 px-2 text-gray-900 h-12 rounded m-2"
           />
-
-          <button
-            type="submit"
-            className="text-white py-6 hover:scale-110 ease-in-out duration-200"
-          >
-            <BsArrowRightCircleFill size={40} />
+          <button className="p-3 mt-2 rounded-full bg-gray-300">
+            <AiOutlineArrowRight size={25} />
           </button>
         </form>
       </div>
     </div>
   );
-};
+}
 
 export default admin;
 
@@ -65,7 +61,7 @@ export async function getServerSideProps({ req, res }) {
     return {
       redirect: {
         permanent: false,
-        destination: "/dashboard",
+        destination: "/admindashboard",
       },
       props: {},
     };

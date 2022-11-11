@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper";
 import "swiper/css/pagination";
@@ -9,19 +9,29 @@ import "swiper/css";
 function Hero() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2">
-      <div className="custom-bg flex flex-col rounded-br-3xl justify-center items-center w-full h-screen">
+      <motion.div
+        initial={{ x: -2000 }}
+        animate={{ x: 0 }}
+        transition={{ type: "spring", stiffness: 30 }}
+        className="custom-bg  flex flex-col rounded-br-3xl justify-center items-center w-full h-screen"
+      >
         <div className="text-white text-5xl max-w-[350px] text-center mt-20 m-6">
-          گروه وکلای{" "}
-          <span className="text-amber-500  text-center text-7xl">صدرا</span>
+          گروه وکلای تجاری{" "}
+          <span className="text-amber-500 text-[98px] text-center">صدرا</span>
         </div>
-        <div className="text-amber-300  text-xl max-w-[220px] text-center m-6">
-          مشاوره رایگان در روزهای سه شنبه و پنج شنبه
-        </div>
-        <div className=" border-white border-2 shadow-xl shadow-black text-gray-900 bg-amber-500  ease-in-out duration-200 hover:scale-110 text-xl  p-2 px-8">
+        {/* <div className="text-amber-300  text-xl max-w-[220px] text-center m-6">
+          گروه وکلای تجاری صدرا{" "}
+        </div> */}
+        <div className="rounded mt-12 shadow-xl shadow-black text-gray-900 bg-amber-500  ease-in-out duration-200 hover:scale-110 text-xl  p-2 px-8">
           رزرو وقت مشاوره
         </div>
-      </div>
-      <div className=" rounded-3xl flex custom-bg-2 justify-center items-center w-full h-screen">
+      </motion.div>
+      <motion.div
+        initial={{ x: 2000 }}
+        animate={{ x: 0 }}
+        transition={{ type: "spring", stiffness: 30 }}
+        className=" rounded-3xl flex custom-bg-2 justify-center items-center w-full h-screen"
+      >
         <Swiper
           className="w-full h-full  mt-6 md:h-[75%] md:mt-[43px]"
           pagination={{
@@ -77,7 +87,7 @@ function Hero() {
             <h1 className="text-5xl text-gray-900"> مشاوره ملکی</h1>
           </SwiperSlide>
         </Swiper>
-      </div>
+      </motion.div>
     </div>
   );
 }

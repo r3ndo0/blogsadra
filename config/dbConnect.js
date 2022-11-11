@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const uri = process.env.MONGO_URI;
+const uri = process.env.NEXT_PUBLIC_MONGO_URI;
 
 export default async function dbConnect() {
   try {

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const Socials = () => {
   return (
-    <motion.nav className="justify-between items-center  max-w-fit text-white  backdrop-blur-3xl md:px-8 pb-2 pt-4 z-[2] fixed left-1/2 translate-x-[-50%] bottom-4 flex gap-8 rounded-full">
+    <motion.div className="justify-between items-center   text-white px-4 backdrop-blur-3xl md:px-8 pb-2 pt-4 z-[2] fixed left-1/2 translate-x-[-50%] bottom-4 flex gap-8 rounded-full">
       <motion.a
         transition={{ type: "spring", stiffness: 50 }}
         initial={{ y: -3000 }}
@@ -28,7 +28,7 @@ const Socials = () => {
       >
         <Image src="/assets/telegram.png" width="45px" height="45px" />
       </motion.a>
-    </motion.nav>
+    </motion.div>
   );
 };
 

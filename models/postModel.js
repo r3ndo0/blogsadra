@@ -6,11 +6,15 @@ const PostSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    text: {
+    content: {
       type: String,
       required: true,
     },
     img: {
+      type: String,
+      required: true,
+    },
+    slug: {
       type: String,
       required: true,
     },

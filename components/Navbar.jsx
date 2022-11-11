@@ -20,10 +20,6 @@ function Navbar() {
   const [open, setOpen] = useState(true);
   const [dropdown, setDropdown] = useState(false);
 
-  // const hoverHandler = () => {
-  //   setDropdown(!dropdown);
-  // };
-
   const handleClick = () => {
     setOpen(!open);
   };
@@ -31,7 +27,7 @@ function Navbar() {
   return (
     <>
       {/* -------------------------Primary Navbar ------------------------ */}
-      <div className="z-10 fixed top-0 w-full">
+      <div className="z-10 fixed top-0 w-full ">
         <div className="w-full border-b-2 custom-bg p-2 h-auto text-white text-right">
           <div className="flex justify-between   items-center">
             <div className="flex justify-center gap-[4px] items-center">
@@ -131,9 +127,13 @@ function Navbar() {
               </Transition>
             </Menu>
             <a className={navItemClassName}>تماس با ما</a>
-            <a className={navItemClassName}>مقالات</a>
+            <a href="/articles" className={navItemClassName}>
+              مقالات
+            </a>
 
-            <a className={navItemClassName}>صفحه اصلی</a>
+            <a href="/" className={navItemClassName}>
+              صفحه اصلی
+            </a>
           </div>
           <div
             className={
@@ -173,7 +173,7 @@ function Navbar() {
           className={
             open
               ? "hidden "
-              : "flex flex-col items-center w-full backdrop-blur-xl text-rose-700 text-2xl justify-center divide-y  "
+              : "flex flex-col items-center w-full custom-bg backdrop-blur-xl text-amber-400 text-2xl justify-center divide-y  "
           }
           layout
         >
