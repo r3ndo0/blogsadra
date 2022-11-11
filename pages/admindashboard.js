@@ -14,7 +14,7 @@ function admindashboard({ user }) {
   return (
     <div className="h-screen w-full absolute z-40 bg-white">
       <button onClick={signoutHandler} className="py-2 px-6 bg-amber-400">
-        خروج از سیستم
+        get Out{" "}
       </button>
     </div>
   );
