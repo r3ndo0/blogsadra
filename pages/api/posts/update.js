@@ -12,16 +12,14 @@ export default async function handler(req, res) {
     return res.status(403).json({ message: "Not authorized" });
   }
 
-  if (method === "POST" && userVerify) {
-    try {
-      const postExists = await Post.findOne({ title });
+  const postExists = await Post.findOne({ title });
 
-      if (postExists) {
-        return res.status(422).json({ message: "Post already exists" });
-      }
-      const post = new Post({ title, content, img, slug });
-      await post.save();
-      res.status(201).json({ message: "Post Created" });
+  if (method === "PUT" && userVerify && postExists) {
+    try {
+      const newValues = { $set: { title, content, img, slug } };
+      await Post.updateOne({ title }, newValues);
+
+      res.status(200).json({ message: "Post Updated" });
     } catch (error) {
       res.status(500).json(error);
     }

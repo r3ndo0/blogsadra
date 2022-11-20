@@ -6,8 +6,8 @@ function about() {
     <div className="mt-96">
       <Image
         src="https://i.postimg.cc/ZRrHq3LY/qwfeeqwrqwtr.png"
-        width="550"
-        height="550"
+        width="750"
+        height="750"
       />
     </div>
   );
