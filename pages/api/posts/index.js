@@ -4,8 +4,8 @@ import Post from "../../../models/postModel";
 export default async function handler(req, res) {
   const { method } = req;
 
-  dbConnect();
-
+  await dbConnect();
+  console.log("DB CONNETCTED");
   if (method === "GET") {
     try {
       const posts = await Post.find();

@@ -126,7 +126,10 @@ function Navbar() {
                 </Menu.Items>
               </Transition>
             </Menu>
-            <a className={navItemClassName}>تماس با ما</a>
+            <a href="/about" className={navItemClassName}>
+              {" "}
+              درباره ما{" "}
+            </a>
             <a href="/articles" className={navItemClassName}>
               مقالات
             </a>
@@ -186,7 +189,9 @@ function Navbar() {
           <div href="/weatherapp" className="p-5 m-5  font-extrabold ">
             خدمات ما
           </div>
-          <div className="p-5 m-5  font-extrabold ">تماس با ما</div>
+          <div className="p-5 m-5  font-extrabold ">
+            <Link href="/about">درباره ما</Link>
+          </div>
         </motion.div>
       </motion.div>
     </>

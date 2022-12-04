@@ -4,7 +4,7 @@ const uri = process.env.NEXT_PUBLIC_MONGO_URI;
 
 export default async function dbConnect() {
   try {
-    await mongoose.connect(uri);
+    mongoose.connect(uri);
   } catch (error) {
     console.log(error);
   }
